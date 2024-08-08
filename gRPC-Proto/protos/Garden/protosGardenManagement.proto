@@ -1,0 +1,185 @@
+syntax="proto3";
+
+option go_package = "generated/gardenManagement";
+
+package gardenManagement;
+
+service gardenManagement{
+    rpc CreateGarden(CreateGardenRequest) returns (CreateGardenResponse );
+
+    rpc ViewGarden(ViewGardenRequest) returns (ViewGardenResponse);
+
+    rpc UpdateGarden(UpdateGardenRequest) returns (UpdateGardenResponse);
+
+    rpc DeleteGarden(DeleteGardenRequest) returns (DeleteGardenResponse);
+
+    rpc ViewUserGardens(ViewUserGardensRequest) returns (ViewUserGardensResponse);
+
+    rpc AddPlanttoGarden(AddPlanttoGardenRequest) returns (AddPlanttoGardenResponse);
+
+    rpc ViewGardenPlants(ViewGardenPlantsRequest) returns (ViewGardenPlantsResponse);
+
+    rpc UpdatePlant(UpdatePlantRequest) returns (UpdatePlantResponse);
+
+    rpc DeletePlant(DeletePlantRequest) returns (DeletePlantResponse);
+
+    rpc AddPlantCareLog(AddPlantCareLogResquest) returns (AddPlantCareLogResponse);
+
+    rpc ViewPlantCareLogs(ViewPlantCareLogsRequest) returns (ViewPlantCareLogsResponse);
+}
+
+// Yangi bog'ni yaratadi. Bog' haqida ma'lumotlarni qabul qiladi va yangi bog'ni ro'yxatga qo'shadi.
+
+message CreateGardenRequest{
+    string id=1;
+    string userId=2;
+    string name=3;
+    float  area_sqm =4;
+}
+
+message CreateGardenResponse {
+    bool success=1;
+}
+
+// Berilgan identifikator (ID) bo'yicha bog'ni qaytaradi. Ma'lum bir bog' haqida batafsil ma'lumot beradi.
+
+message ViewGardenRequest{
+    string id=1;
+}
+
+message ViewGardenResponse {
+    string id=1;
+    string userId=2;
+    string name=3;
+    float  area_sqm =4;
+}
+
+// Berilgan identifikator bo'yicha bog'ni yangilaydi. Bog'ning ma'lumotlarini yangilash uchun ishlatiladi.
+
+message UpdateGardenRequest{
+    string id=1;
+    string userId=2;
+    string name=3;
+    string type=4;
+    float  area_sqm =5;
+}
+
+message UpdateGardenResponse{
+    bool success=1;
+}
+
+// Berilgan identifikator bo'yicha bog'ni o'chiradi. Ma'lum bir bog'ni ro'yxatdan chiqaradi.
+
+message DeleteGardenRequest{
+    string id=1;
+}
+
+message DeleteGardenResponse{
+    bool success=1;
+}
+
+// Berilgan foydalanuvchi identifikatori bo'yicha foydalanuvchining barcha bog'larini qaytaradi.
+
+message ViewUserGardensRequest{
+    string userId=1;
+}
+
+message ViewUserGardensResponse{
+    repeated Garden gardens = 1;
+}
+
+message Garden{
+    string id=1;
+    string userId=2;
+    string name=3;
+    string type=4;
+    float  area_sqm =5;
+}
+
+// Berilgan bog' identifikatori bo'yicha yangi o'simlik qo'shadi. O'simlikni bog'ga qo'shadi.
+
+message AddPlanttoGardenRequest{
+    string id =1;
+    string gardenId=2;
+    string species=3;
+    int32  quantity=4;
+    string plantingDate=5;
+    string Status=6;
+}
+
+message AddPlanttoGardenResponse {
+    bool success=1;
+}
+
+// Berilgan bog' identifikatori bo'yicha bog'dagi barcha o'simliklarni qaytaradi.
+
+message ViewGardenPlantsRequest{
+    string gardenId=1;
+}
+
+message ViewGardenPlantsResponse {
+    repeated Plant plants=1;
+}
+
+message Plant{
+    string id =1;
+    string gardenId=2;
+    string species=3;
+    int32  quantity=4;
+    string plantingDate=5;
+    string Status=6;
+}
+
+// Berilgan o'simlik identifikatori bo'yicha o'simlikni yangilaydi. O'simlik haqida ma'lumotlarni yangilash uchun ishlatiladi.
+
+message UpdatePlantRequest{
+    string id =1;
+    string gardenId=2;
+    string species=3;
+    int32  quantity=4;
+    string plantingDate=5;
+    string Status=6;
+}
+
+message UpdatePlantResponse {
+    bool success=1;
+}
+
+// Berilgan o'simlik identifikatori bo'yicha o'simlikni o'chiradi. Ma'lum bir o'simlikni bog'dan chiqaradi.
+message DeletePlantRequest{
+    string id=1;
+}
+
+message DeletePlantResponse {
+    bool success=1;
+}
+
+// Berilgan o'simlik identifikatori bo'yicha yangi parvarish yozuvi qo'shadi. O'simlik parvarishi haqida ma'lumot kiritadi.
+
+message AddPlantCareLogResquest{
+    string id =1;
+    string plantId=2;
+    string action=3;
+    string notes=4;
+}
+
+message AddPlantCareLogResponse {
+    bool success=1;
+}
+
+// Berilgan o'simlik identifikatori bo'yicha barcha parvarish yozuvlarini qaytaradi. O'simlikning parvarish tarixi haqida ma'lumot beradi.
+
+message ViewPlantCareLogsRequest{
+    string plantId=1;
+}
+
+message ViewPlantCareLogsResponse {
+    repeated CareLog coreLogs=1;
+}
+
+message CareLog{
+    string id =1;
+    string plantId=2;
+    string action=3;
+    string notes=4;
+}

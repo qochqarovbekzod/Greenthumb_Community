@@ -1,0 +1,183 @@
+syntax="proto3";
+
+option go_package = "generated/sustainability";
+
+package SustainabilityImpactService;
+
+service SustainabilityimpactService{
+    rpc LogImpact(LogImpactRequest) returns (LogImpactResponse);
+
+    rpc GetUserImpact(GetUserImpactRequest) returns (GetUserImpactResponse);
+
+    rpc CreateSustainability(CreateSustainabilityRequest) returns (CreateSustainabilityResponse);
+
+    rpc  GetCommunityImpact(GetCommunityImpactRequest) returns (GetCommunityImpactResponse);
+
+    rpc GetChallenges(GetChallengesRequest) returns (GetChallengesResponse);
+
+    rpc JoinChallenge(JoinChallengeRequest) returns (JoinChallengeResponse);
+
+    rpc UpdateChallengeProgress(UpdateChallengeProgressRequest) returns (UpdateChallengeProgressResponse);
+
+    rpc GetUserChallenges(GetUserChallengesRequest) returns (GetUserChallengesResponse);
+
+    rpc GetUsersLeaderboard(GetUsersLeaderboardRequest) returns (GetUsersLeaderboardResponse);
+
+    rpc GetCommunitiesLeaderboard(GetCommunitiesLeaderboardRequest) returns (GetCommunitiesLeaderboardResponse);
+}   
+
+// Ushbu method foydalanuvchilarning amalga oshirgan barqarorlik harakatlarini qayd etish uchun ishlatiladi. 
+// Masalan, foydalanuvchi chiqindini qayta ishlash yoki elektr energiyasini tejash bo'yicha ma'lumotlarni kiritishi mumkin.
+
+message LogImpactRequest{
+    string user_id=1;
+    string category=2;
+    string amount=3;
+    string unit=4;
+}
+
+message LogImpactResponse{
+    bool success=1;
+}
+
+// Bu method aniq bir foydalanuvchining barqarorlik harakatlari natijalarini ko'rish uchun ishlatiladi. 
+// ID o'rniga foydalanuvchining identifikatori qo'yiladi.
+
+
+message GetUserImpactRequest{
+    string userId=1;
+}
+
+message GetUserImpactResponse{
+    repeated UserImpact userImpact=1;
+}
+
+message UserImpact{
+    string user_id=1;
+    string category=2;
+    string amount=3;
+    string unit=4;
+}
+
+// Bu method bir jamoaning barqarorlik harakatlari natijalarini ko'rish uchun ishlatiladi. 
+// ID o'rniga jamoaning identifikatori qo'yiladi.
+
+message GetCommunityImpactRequest{
+    string id=1;
+}
+
+message GetCommunityImpactResponse{
+    string id=1;
+
+    string user_id=2;
+    string category=3;
+    float goalAmount=4;
+    string goalUnit=5;
+    string logged_at=6;
+}
+
+// Ushbu method mavjud bo'lgan barcha barqarorlik bo'yicha chaqiruvlarni (challenges) ko'rsatish uchun ishlatiladi.
+
+message GetChallengesRequest{};
+
+message GetChallengesResponse{
+    repeated Challenge challanges=1;
+}
+
+message Challenge{
+    string id=1;
+    string title=2;
+    string description=3;
+    float goalAmount=4;
+    string goalUnit=5;
+}
+
+// Bu method foydalanuvchining aniq bir chaqiruvga qo'shilishi uchun ishlatiladi. 
+// ID o'rniga chaqiruvning identifikatori qo'yiladi.
+
+message JoinChallengeRequest{
+    string userId=1;
+    string challengeId=2;
+    float progress=3;
+}
+
+message JoinChallengeResponse{
+    bool success=1;
+}
+
+
+// Ushbu method foydalanuvchining aniq bir chaqiruvdagi yutuqlarini yangilash uchun ishlatiladi.
+//  ID o'rniga chaqiruvning identifikatori qo'yiladi.
+
+message UpdateChallengeProgressRequest{
+    string userId=1;
+    string challengeId=2;
+    float progress=3;
+}
+
+message UpdateChallengeProgressResponse{
+    bool success=1;
+}
+
+// Bu method foydalanuvchining qo'shilgan barcha chaqiruvlarini ko'rish uchun ishlatiladi.
+//  ID o'rniga foydalanuvchining identifikatori qo'yiladi.
+
+message GetUserChallengesRequest{
+    string userId=1;
+}
+
+message GetUserChallengesResponse{
+    repeated UserChallenge userChallenges=1;
+}
+
+message UserChallenge{
+    string userId=1;
+    string challengeId=2;
+    float progress=3;
+    string completedAt=4;
+}
+
+// Ushbu method barcha foydalanuvchilar orasida eng yaxshi natijalarga erishganlarni ko'rsatish uchun ishlatiladi.
+
+message GetUsersLeaderboardRequest{}
+
+message GetUsersLeaderboardResponse{
+    repeated UsersLeaderboard leaderboard=1;
+}
+
+message UsersLeaderboard {
+    string userId=1;
+    float totalProgres=2;
+}
+
+// Bu method barcha jamoalar orasida eng yaxshi natijalarga erishganlarni ko'rsatish uchun ishlatiladi.
+
+message GetCommunitiesLeaderboardRequest {
+    repeated CommunityMembers communityMembers = 1;
+}
+
+message CommunityMembers {
+    string communityId = 1;
+    string communityName = 2;
+    repeated string members = 3;
+}
+
+message GetCommunitiesLeaderboardResponse{
+    repeated CommunitiesLeaderboard communitiesLeaderboards = 1;
+}
+
+message CommunitiesLeaderboard {
+    string communityName=1;
+    string communityId = 2;
+    float totalProgres=3;
+}
+message CreateSustainabilityRequest{
+    string title=1;
+    string description=2;
+    float goal_amount=3;
+    string goal_unit=4;
+}
+
+message CreateSustainabilityResponse{
+    bool success=1;
+}

@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS forum_comments (
+    id UUID PRIMARY KEY NOT NULL DEFAULT GEN_RANDOM_UUID(),
+    post_id UUID REFERENCES forum_posts(id),
+    user_id UUID NOT NULL,
+    comment TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

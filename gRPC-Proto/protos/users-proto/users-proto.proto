@@ -1,0 +1,153 @@
+syntax="proto3";
+
+option go_package = "generated/users";
+
+package users;
+
+service UserManagement{
+
+    rpc CheckUser(UserRequest) returns (UserResponse);
+
+    rpc EmailExists(EmailExistsRequest) returns (EmailExistsResponse);
+
+    rpc Login(LoginRequest) returns (LoginResponse);
+    
+    rpc CreateUser(CreateUsersRequest) returns (CreateUsersResponce);
+    
+    rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponce);
+
+    rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+    
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponce);
+    
+    rpc GetUserByIdProfile(GetUserByIdProfileRequest) returns (GetUserByIdProfileResponces);
+
+    rpc CreateUserProfile(CreateProfileUsersRequest) returns (CreateProfileUsersResponce);
+
+    rpc UpdateUserProfile(UpdateUserProfileRequest) returns (UpdateUserProfileResponces);
+}
+
+message UserRequest {
+    string user_id = 1;
+}
+
+message UserResponse {
+    bool exists = 1;
+}
+
+// Emial exists
+
+message EmailExistsRequest {
+    string email = 1;
+}
+
+message EmailExistsResponse {
+    bool exists = 1;
+}
+
+//login request
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string user_id=1;
+    string username=2;
+    string email =3;
+    string token = 4;
+}
+
+//create user request
+message CreateUsersRequest{
+    string UserId=1;
+    string UserName=2;
+    string Email =3;
+    string Password = 4;
+}
+
+// create user response
+message CreateUsersResponce{
+    string UserId=1;
+}
+
+// get user by id
+
+message GetUserByIdRequest{
+    string UserId=1;
+}
+
+message GetUserByIdResponce{
+    string UserId=1;
+    string UserName=2;
+    string Email =3;
+}
+
+// update user 
+
+message UpdateUserRequest {
+    string user_id = 1;
+    string username = 2;
+    string email = 3;
+    string password = 4;
+}
+
+message UpdateUserResponse {
+    bool success = 1;
+}
+
+// delete user request
+message DeleteUserRequest{
+    string UserId=1;
+}
+
+// delete user response
+message DeleteUserResponce{
+    bool Success=1;
+}
+
+// GET user by id Profile request
+
+message GetUserByIdProfileRequest{
+    string UserId=1;
+}
+
+// GEt user by id Profile response
+message GetUserByIdProfileResponces{
+    string UserId=1;
+    string FullName=2;
+    string Bio=3;
+    string UserExpertise=4;
+    string Location=5;
+    string AvatarUrl=6;
+}
+
+message CreateProfileUsersRequest {
+    string UserId=1;
+    string FullName=2;
+    string Bio=3;
+    string UserExpertise=4;
+    string Location=5;
+    string AvatarUrl=6;
+}
+
+message CreateProfileUsersResponce {
+    bool success = 1;
+}
+
+//update user profile request
+
+message UpdateUserProfileRequest{
+    string UserId=1;
+    string FullName=2;
+    string Bio=3;
+    string UserExpertise=4;
+    string Location=5;
+    string AvatarUrl=6;
+}
+
+// update user profile response
+message UpdateUserProfileResponces{
+    bool success = 1;
+}

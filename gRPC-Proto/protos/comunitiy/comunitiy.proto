@@ -1,0 +1,230 @@
+syntax = "proto3";
+
+option go_package = "generated/community";
+
+package comunity;
+
+service ComunityService{
+    rpc CreateCommunity(CreateCommunityRequest) returns (CreateCommunityResponse);
+
+    rpc GetCommunity(GetCommunityRequest) returns (GetCommunityResponse);
+
+    rpc UpdateCommunity(UpdateCommunityRequest) returns(UpdateCommunityResponse);
+
+    rpc DeleteCommunity(DeleteCommunityRequest) returns (DeleteCommunityResponse);
+
+    rpc ListCommunities(ListCommunitiesRequest) returns (ListCommunitiesResponse);
+
+    rpc JoinCommunity(JoinCommunityRequest) returns (JoinCommunityResponse);
+
+    rpc LeaveCommunity(LeaveCommunityRequest) returns (LeaveCommunityResponse);
+
+    rpc CreateCommunityEvent(CreateCommunityEventRequest) returns (CreateCommunityEventResponse);
+
+    rpc ListCommunityEvents(ListCommunityEventsRequest) returns (ListCommunityEventsResponse);
+
+    rpc CreateCommunityForumPost(CreateCommunityForumPostRequest) returns (CreateCommunityForumPostRespnse);
+
+    rpc ListCommunityForumPosts(ListCommunityForumPostsRequest) returns (ListCommunityForumPostsResponse);
+
+    rpc AddForumPostComment(AddForumPostCommentRequest) returns (AddForumPostCommentResponse);
+
+    rpc ListForumPostComments(ListForumPostCommentsRequest) returns (ListForumPostCommentsResponse);
+
+}
+//  Bu metod orqali foydalanuvchi yangi jamiyat tashkil qilishi mumkin. 
+// Jamiyatning nomi, tavsifi va boshqa kerakli ma'lumotlar serverga yuboriladi va yangi jamiyat yaratiladi.
+message CreateCommunityRequest{
+    string name=1;
+    string description=2;
+    string location=3;
+}
+
+message CreateCommunityResponse{
+    bool success=1;
+}
+
+// Bu metod orqali foydalanuvchi muayyan jamiyatning tafsilotlarini ko'rishi mumkin. 
+// Jamiyatning ID raqami orqali serverdan jamiyat haqida batafsil ma'lumot olinadi.
+
+message GetCommunityRequest{
+    string id=1;
+
+}
+
+message GetCommunityResponse{
+    string id=1;
+    string name=2;
+    string description=3;
+    string location=4;
+}
+
+// Bu metod orqali foydalanuvchi mavjud jamiyatning ma'lumotlarini o'zgartirishi mumkin. 
+// Jamiyat ID raqami ko'rsatiladi va yangilanishlar serverga yuboriladi.
+
+message UpdateCommunityRequest{
+    string id=1;
+    string name=2;
+    string description=3;
+    string location=4;
+}
+
+message UpdateCommunityResponse{
+    bool succses=1;
+}
+
+// Bu metod orqali foydalanuvchi muayyan jamiyatni o'chirishi mumkin. 
+// Jamiyat ID raqami ko'rsatiladi va jamiyat serverdan o'chiriladi.
+message DeleteCommunityRequest{
+    string id =1;
+}
+
+message DeleteCommunityResponse{
+    bool succses=1;
+}
+
+// Bu metod orqali foydalanuvchi mavjud barcha jamiyatlarning ro'yxatini ko'rishi mumkin. 
+// Serverdan barcha jamiyatlar haqida umumiy ma'lumotlar olinadi.
+
+message ListCommunitiesRequest{
+    string name=2;
+    string description=3;
+    string location=4;
+    int64 offset=5;
+    int64 limit=6;
+}
+
+message ListCommunitiesResponse{
+    repeated Comunity comunitys=1;
+}
+
+message Comunity{
+    string name=2;
+    string description=3;
+    string location=4;
+}
+
+// Bu metod orqali foydalanuvchi muayyan jamiyatga qo'shilishi mumkin. 
+// Jamiyat ID raqami ko'rsatiladi va foydalanuvchi a'zolikni so'raydi.
+
+message JoinCommunityRequest{
+    string community_id = 1;
+    string user_id=2;
+}
+
+message JoinCommunityResponse{
+    bool success=1;
+}
+
+// Bu metod orqali foydalanuvchi muayyan jamiyatni tark etishi mumkin. 
+// Jamiyat ID raqami ko'rsatiladi va foydalanuvchi a'zolikdan chiqadi.
+message LeaveCommunityRequest{
+    string community_id =1;
+}
+
+message LeaveCommunityResponse{
+    bool success=1;
+}
+
+// Bu metod orqali foydalanuvchi muayyan jamiyatda tadbir tashkil qilishi mumkin. 
+// Tadbir haqida kerakli ma'lumotlar serverga yuboriladi va yangi tadbir yaratiladi.
+
+message CreateCommunityEventRequest {
+    string id = 1;
+    string ComunityId = 2;
+    string name = 3;
+    string description = 4;
+    string type = 5;
+    string startType = 6;
+    string endType = 7;
+    string location = 8;
+}
+
+message CreateCommunityEventResponse {
+    bool success = 1;
+}
+
+
+// Bu metod orqali foydalanuvchi muayyan jamiyatdagi barcha tadbirlarning ro'yxatini ko'rishi mumkin. 
+// Jamiyat ID raqami ko'rsatiladi va serverdan tadbirlar ro'yxati olinadi.
+message ListCommunityEventsRequest {
+    string community_id = 1;
+}
+
+message ListCommunityEventsResponse {
+    repeated CommunityEvent CommunityEvents = 1;
+}
+
+message CommunityEvent {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string type = 4;
+    string startType = 5;
+    string endType = 6;
+    string location = 7;
+}
+
+// Bu metod orqali foydalanuvchi muayyan jamiyat forumida yangi post yaratishi mumkin. 
+// Post haqida kerakli ma'lumotlar serverga yuboriladi va yangi post yaratiladi.
+
+message CreateCommunityForumPostRequest {
+    string id = 1;
+    string communityId = 2;
+    string userId = 3;
+    string title = 4;
+    string content = 5;
+}
+
+message CreateCommunityForumPostRespnse {
+    bool success = 1;
+}
+
+// Bu metod orqali foydalanuvchi muayyan jamiyat forumidagi barcha postlarning ro'yxatini ko'rishi mumkin. 
+// Jamiyat ID raqami ko'rsatiladi va serverdan postlar ro'yxati olinadi.
+
+message ListCommunityForumPostsRequest {
+    string ComunityId = 1; 
+}
+
+message ListCommunityForumPostsResponse {
+    repeated ForumPost forumPosts = 1;
+}
+
+message ForumPost {
+    string id = 1;
+    string userId = 2;
+    string title = 3;
+    string content = 4;
+}
+
+// Bu metod orqali foydalanuvchi muayyan forum postiga izoh qo'shishi mumkin. 
+// Post ID raqami ko'rsatiladi va izoh haqida kerakli ma'lumotlar serverga yuboriladi.
+
+message AddForumPostCommentRequest {
+    string id = 1;
+    string postId = 2;
+    string userId = 3;
+    string comment = 4;
+}
+
+message AddForumPostCommentResponse {
+    bool success = 1;
+}
+
+// Bu metod orqali foydalanuvchi muayyan forum postidagi barcha izohlarning ro'yxatini ko'rishi mumkin. 
+// Post ID raqami ko'rsatiladi va serverdan izohlar ro'yxati olinadi.
+
+message ListForumPostCommentsRequest {
+    string postId = 1;
+}
+
+message ListForumPostCommentsResponse {
+    repeated ListForumPostComment listForumPostComments = 1;
+}
+
+message ListForumPostComment {
+    string id = 1;
+    string userId = 2;
+    string comment = 3;
+}

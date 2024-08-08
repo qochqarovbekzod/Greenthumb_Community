@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1b8b0324-d476-47e3-b976-f1f3bbbaa981" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/storage/postgres/community_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/migrations/000002_create_communities_table.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/databases/migrations/000002_create_communities_table.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/migrations/000004_create_events_table.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/databases/migrations/000004_create_events_table.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/migrations/000005_create_forum_posts_table.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/databases/migrations/000005_create_forum_posts_table.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/migrations/000006_create_forum_comments_table.down.sql" beforeDir="false" afterPath="$PROJECT_DIR$/databases/migrations/000006_create_forum_comments_table.down.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/migrations/000006_create_forum_comments_table.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/databases/migrations/000006_create_forum_comments_table.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/postgres/community.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/postgres/community.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../pkg/mod/golang.org/toolchain@v0.0.1-go1.22.4.darwin-arm64" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ijtBcQieHtKNTZTzOtCnfz2bkt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Test.TestCreateCommunity in community-service/storage/postgres.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestDeleteCommunity in community-service/storage/postgres.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestGetCommunity in community-service/storage/postgres.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestUpdateCommunity in community-service/storage/postgres.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Nurmuhammad&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nurmuxammad&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Go Test.TestUpdateCommunity in community-service/storage/postgres">
+    <configuration name="TestCreateCommunity in community-service/storage/postgres" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Community-service" />
+      <working_directory value="$PROJECT_DIR$/storage/postgres" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="community-service/storage/postgres" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCreateCommunity\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestDeleteCommunity in community-service/storage/postgres" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Community-service" />
+      <working_directory value="$PROJECT_DIR$/storage/postgres" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="community-service/storage/postgres" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestDeleteCommunity\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetCommunity in community-service/storage/postgres" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Community-service" />
+      <working_directory value="$PROJECT_DIR$/storage/postgres" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="community-service/storage/postgres" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestGetCommunity\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestListCommunity in community-service/storage/postgres" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Community-service" />
+      <working_directory value="$PROJECT_DIR$/storage/postgres" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="community-service/storage/postgres" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestListCommunity\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestUpdateCommunity in community-service/storage/postgres" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Community-service" />
+      <working_directory value="$PROJECT_DIR$/storage/postgres" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="community-service/storage/postgres" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestUpdateCommunity\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestUpdateCommunity in community-service/storage/postgres" />
+        <item itemvalue="Go Test.TestListCommunity in community-service/storage/postgres" />
+        <item itemvalue="Go Test.TestCreateCommunity in community-service/storage/postgres" />
+        <item itemvalue="Go Test.TestDeleteCommunity in community-service/storage/postgres" />
+        <item itemvalue="Go Test.TestGetCommunity in community-service/storage/postgres" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-33c477a475b1-e0158606a674-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-241.15989.157" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-GO-241.15989.157" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
